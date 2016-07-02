@@ -11,11 +11,13 @@ function prediction(req, res) {
 
             Prediction.guessPrediction(defaultPredictionFile.employees,
                 req.body.job_seeker, function (result) {
-                    res.json(result);
+                    console.log("predictor result are:" + result);
+                    res.json({"predictor_response":result});
                 });
         } else {
             Prediction.guessPrediction(req.body.employees, req.body.job_seeker, function (result) {
-                res.json(result);
+                console.log("predictor result are:" + result);
+                res.json({"predictor_response":result});
             });
         }
 
